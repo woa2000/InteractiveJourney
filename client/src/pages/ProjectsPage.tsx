@@ -12,11 +12,11 @@ export default function ProjectsPage() {
   return (
     <>
       <AdminLayout 
-        pageTitle="Gerenciamento de Projetos" 
-        breadcrumbItems={['Projetos']}
+        pageTitle="Atividades & Execuções Retail" 
+        breadcrumbItems={['Atividades']}
       >
         <div className="page-header">
-          <h2 className="page-title">Gerenciamento de Projetos</h2>
+          <h2 className="page-title">Atividades & Execuções Retail</h2>
           <div className="table-actions">
             <Button variant="outline" className="flex items-center gap-2">
               <Filter size={16} />
@@ -27,7 +27,7 @@ export default function ProjectsPage() {
               className="bg-[hsl(38,95%,56%)] hover:bg-[hsl(38,95%,50%)] text-white flex items-center gap-2"
             >
               <Plus size={16} />
-              Novo Projeto
+              Nova Atividade
             </Button>
           </div>
         </div>

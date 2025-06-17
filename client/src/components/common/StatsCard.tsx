@@ -2,7 +2,8 @@ import {
   LayoutDashboard, 
   AlertTriangle, 
   CheckCircle, 
-  Users 
+  Users,
+  Store
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -15,6 +16,7 @@ interface StatsCardProps {
 
 const iconMap = {
   'project-diagram': LayoutDashboard,
+  'store': Store,
   'exclamation-triangle': AlertTriangle,
   'check-circle': CheckCircle,
   'users': Users

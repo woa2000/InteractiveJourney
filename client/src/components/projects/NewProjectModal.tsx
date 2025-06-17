@@ -38,7 +38,7 @@ export default function NewProjectModal({ isOpen, onClose }: NewProjectModalProp
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-[2000] opacity-100 visible transition-all duration-300">
       <div className="bg-white rounded-xl p-8 max-w-md w-[90%] max-h-[80vh] overflow-y-auto transform translate-y-0 transition-transform duration-300">
         <div className="flex justify-between items-center mb-6">
-          <h3 className="text-2xl font-semibold text-gray-900">Novo Projeto</h3>
+          <h3 className="text-2xl font-semibold text-gray-900">Nova Atividade Retail</h3>
           <button 
             onClick={onClose}
             className="text-gray-400 hover:text-gray-600 p-2 hover:bg-gray-100 rounded transition-colors duration-300"
@@ -50,12 +50,12 @@ export default function NewProjectModal({ isOpen, onClose }: NewProjectModalProp
         <form onSubmit={handleSubmit} className="space-y-5">
           <div>
             <Label htmlFor="name" className="block mb-2 font-medium text-gray-700">
-              Nome do Projeto
+              Nome da Atividade
             </Label>
             <Input
               id="name"
               type="text"
-              placeholder="Digite o nome do projeto"
+              placeholder="Ex: Auditoria de Estoque, Campanha Promocional"
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               className="w-full"
@@ -64,7 +64,7 @@ export default function NewProjectModal({ isOpen, onClose }: NewProjectModalProp
           
           <div>
             <Label htmlFor="client" className="block mb-2 font-medium text-gray-700">
-              Cliente
+              Loja/Cliente
             </Label>
             <Select value={formData.client} onValueChange={(value) => setFormData({ ...formData, client: value })}>
               <SelectTrigger>
