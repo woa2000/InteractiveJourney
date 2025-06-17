@@ -2,7 +2,7 @@
 
 ## Overview
 
-Rise Field Execution is a modern React 18 web application designed as a comprehensive administrative platform focusing on project management and field operations. The application serves as a "command center" for operations management, specifically targeting the "Gestor de Field" (Field Manager) persona.
+Rise Field Execution is a modern React 18 web application designed as a comprehensive administrative platform focusing on retail field operations and activity management. The application serves as a "command center" for retail operations management, specifically targeting the "Gestor de Field" (Field Manager) persona working with retail stores, campaigns, and field executions.
 
 The project is built using a full-stack architecture with a React frontend using TypeScript, Express.js backend, and PostgreSQL database with Drizzle ORM for data management.
 
@@ -39,10 +39,10 @@ The project is built using a full-stack architecture with a React frontend using
 - **Breadcrumb**: Navigation trail for page hierarchy
 
 ### Page Structure
-- **Dashboard**: Overview page with statistics and activity metrics
-- **Projects**: Project management with table view and creation modal
-- **Cadastros**: Master data management interface
-- **Reports**: Analytics and reporting visualization
+- **Dashboard**: Overview page with retail metrics and field activity statistics
+- **Atividades**: Retail activity management with table view and creation modal for store operations
+- **Cadastros**: Master data management for stores, PDVs, promoters and materials
+- **Reports**: Analytics and reporting for store performance and campaign ROI
 - **Settings**: User profile and system configuration
 
 ### UI Components
@@ -126,6 +126,7 @@ The project is built using a full-stack architecture with a React frontend using
 ## Changelog
 
 - June 17, 2025. Initial setup
+- June 17, 2025. Content adapted for retail operations - Updated mock data, terminology, and page content to focus on retail field activities, store management, and campaign execution
 
 ## User Preferences
 

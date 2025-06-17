@@ -11,17 +11,17 @@ export default function ProjectsTable({ projects }: ProjectsTableProps) {
   return (
     <div className="table-container">
       <div className="table-header">
-        <h3 className="table-title">Projetos</h3>
+        <h3 className="table-title">Atividades de Campo</h3>
       </div>
       <div className="overflow-x-auto">
         <table className="w-full">
           <thead>
             <tr className="border-b border-gray-200">
               <th className="text-left py-4 px-6 font-semibold text-gray-700 bg-gray-50">
-                Nome do Projeto
+                Nome da Atividade
               </th>
               <th className="text-left py-4 px-6 font-semibold text-gray-700 bg-gray-50">
-                Cliente
+                Loja/Cliente
               </th>
               <th className="text-left py-4 px-6 font-semibold text-gray-700 bg-gray-50">
                 Status

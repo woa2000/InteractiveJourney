@@ -68,7 +68,7 @@ export default function NewProjectModal({ isOpen, onClose }: NewProjectModalProp
             </Label>
             <Select value={formData.client} onValueChange={(value) => setFormData({ ...formData, client: value })}>
               <SelectTrigger>
-                <SelectValue placeholder="Selecione um cliente" />
+                <SelectValue placeholder="Selecione uma loja" />
               </SelectTrigger>
               <SelectContent>
                 {mockClients.map((client) => (
@@ -95,12 +95,12 @@ export default function NewProjectModal({ isOpen, onClose }: NewProjectModalProp
           
           <div>
             <Label htmlFor="description" className="block mb-2 font-medium text-gray-700">
-              Descrição
+              Descrição da Atividade
             </Label>
             <Textarea
               id="description"
               rows={4}
-              placeholder="Descreva o projeto"
+              placeholder="Descreva as tarefas e objetivos da atividade"
               value={formData.description}
               onChange={(e) => setFormData({ ...formData, description: e.target.value })}
               className="w-full"
@@ -112,7 +112,7 @@ export default function NewProjectModal({ isOpen, onClose }: NewProjectModalProp
               Cancelar
             </Button>
             <Button type="submit" className="bg-[hsl(38,95%,56%)] hover:bg-[hsl(38,95%,50%)] text-white">
-              Criar Projeto
+              Criar Atividade
             </Button>
           </div>
         </form>

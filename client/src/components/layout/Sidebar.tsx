@@ -22,7 +22,7 @@ const navigationItems = [
     icon: LayoutDashboard
   },
   {
-    label: 'Projetos',
+    label: 'Atividades',
     href: '/projects',
     icon: FolderKanban
   },
