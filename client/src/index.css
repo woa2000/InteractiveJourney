@@ -1,0 +1,341 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(224, 71.4%, 4.1%);
+  --muted: hsl(220, 14.3%, 95.9%);
+  --muted-foreground: hsl(220, 8.9%, 46.1%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(224, 71.4%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(224, 71.4%, 4.1%);
+  --border: hsl(220, 13%, 91%);
+  --input: hsl(220, 13%, 91%);
+  --primary: hsl(219, 87%, 21%);
+  --primary-foreground: hsl(210, 20%, 98%);
+  --secondary: hsl(220, 14.3%, 95.9%);
+  --secondary-foreground: hsl(220, 9%, 46%);
+  --accent: hsl(38, 95%, 56%);
+  --accent-foreground: hsl(220, 9%, 9%);
+  --destructive: hsl(0, 72%, 51%);
+  --destructive-foreground: hsl(210, 20%, 98%);
+  --success: hsl(142, 76%, 36%);
+  --success-foreground: hsl(355, 7%, 97%);
+  --ring: hsl(219, 87%, 21%);
+  --radius: 0.75rem;
+
+  /* Custom Rise Field Execution colors */
+  --rise-primary: hsl(219, 87%, 21%);
+  --rise-accent: hsl(38, 95%, 56%);
+  --rise-error: hsl(350, 72%, 49%);
+  --rise-success: hsl(142, 76%, 36%);
+  --rise-light-gray: hsl(210, 20%, 98%);
+  --rise-medium-gray: hsl(220, 13%, 91%);
+  --rise-dark-gray: hsl(220, 9%, 46%);
+  --rise-text-dark: hsl(224, 9%, 20%);
+  
+  /* Sidebar variables */
+  --sidebar-width: 240px;
+  --sidebar-collapsed: 64px;
+  --header-height: 70px;
+  --breadcrumb-height: 50px;
+}
+
+.dark {
+  --background: hsl(224, 71.4%, 4.1%);
+  --foreground: hsl(210, 20%, 98%);
+  --muted: hsl(215, 27.9%, 16.9%);
+  --muted-foreground: hsl(217.9, 10.6%, 64.9%);
+  --popover: hsl(224, 71.4%, 4.1%);
+  --popover-foreground: hsl(210, 20%, 98%);
+  --card: hsl(224, 71.4%, 4.1%);
+  --card-foreground: hsl(210, 20%, 98%);
+  --border: hsl(215, 27.9%, 16.9%);
+  --input: hsl(215, 27.9%, 16.9%);
+  --primary: hsl(219, 87%, 21%);
+  --primary-foreground: hsl(210, 20%, 98%);
+  --secondary: hsl(215, 27.9%, 16.9%);
+  --secondary-foreground: hsl(210, 20%, 98%);
+  --accent: hsl(38, 95%, 56%);
+  --accent-foreground: hsl(220, 9%, 9%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(210, 20%, 98%);
+  --ring: hsl(216, 12.2%, 83.9%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  }
+
+  /* Import Poppins font */
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+  }
+}
+
+@layer components {
+  /* Admin Layout */
+  .admin-layout {
+    @apply flex min-h-screen;
+  }
+
+  /* Sidebar Styles */
+  .sidebar-container {
+    width: var(--sidebar-width);
+    @apply bg-[hsl(219,87%,21%)] text-white fixed h-screen left-0 top-0 z-50 transition-all duration-300 overflow-hidden;
+  }
+
+  .sidebar-container.collapsed {
+    width: var(--sidebar-collapsed);
+  }
+
+  .sidebar-header {
+    @apply flex items-center px-5 border-b border-white/10;
+    height: var(--header-height);
+  }
+
+  .sidebar-logo {
+    @apply w-8 h-8 bg-[hsl(38,95%,56%)] rounded-xl flex items-center justify-center mr-3 flex-shrink-0;
+  }
+
+  .sidebar-title {
+    @apply font-semibold text-lg whitespace-nowrap opacity-100 transition-opacity duration-300;
+  }
+
+  .sidebar-container.collapsed .sidebar-title {
+    @apply opacity-0;
+  }
+
+  .sidebar-toggle {
+    @apply bg-transparent border-0 text-white cursor-pointer p-2 rounded ml-auto transition-colors duration-300 hover:bg-white/10;
+  }
+
+  .sidebar-nav {
+    @apply flex-1 py-5;
+  }
+
+  .nav-item {
+    @apply flex items-center px-5 py-3 text-white/80 no-underline transition-all duration-300 relative hover:bg-white/10 hover:text-white;
+  }
+
+  .nav-item.active {
+    @apply bg-white/10 text-white;
+  }
+
+  .nav-item.active::before {
+    @apply content-[''] absolute left-0 top-0 bottom-0 w-1 bg-[hsl(38,95%,56%)];
+  }
+
+  .nav-item i {
+    @apply w-6 mr-3 text-center flex-shrink-0;
+  }
+
+  .nav-text {
+    @apply whitespace-nowrap opacity-100 transition-opacity duration-300;
+  }
+
+  .sidebar-container.collapsed .nav-text {
+    @apply opacity-0;
+  }
+
+  .sidebar-footer {
+    @apply border-t border-white/10 py-5;
+  }
+
+  /* Main Content */
+  .main-content {
+    margin-left: var(--sidebar-width);
+    width: calc(100% - var(--sidebar-width));
+    @apply transition-all duration-300;
+  }
+
+  .sidebar-container.collapsed + .main-content {
+    margin-left: var(--sidebar-collapsed);
+    width: calc(100% - var(--sidebar-collapsed));
+  }
+
+  .header-container {
+    @apply bg-white flex items-center justify-between px-8 shadow-sm sticky top-0 z-40;
+    height: var(--header-height);
+  }
+
+  .header-title {
+    @apply text-2xl font-semibold text-[hsl(219,87%,21%)];
+  }
+
+  .header-actions {
+    @apply flex items-center gap-5;
+  }
+
+  .notification-btn {
+    @apply bg-transparent border-0 text-[hsl(220,9%,46%)] cursor-pointer p-2 rounded-full relative transition-colors duration-300 hover:bg-[hsl(210,20%,98%)];
+  }
+
+  .notification-badge {
+    @apply absolute top-1 right-1 w-2 h-2 bg-[hsl(350,72%,49%)] rounded-full;
+  }
+
+  .user-info {
+    @apply flex items-center gap-3;
+  }
+
+  .user-avatar {
+    @apply w-9 h-9 bg-[hsl(38,95%,56%)] rounded-full flex items-center justify-center text-white font-semibold;
+  }
+
+  .user-name {
+    @apply font-medium text-[hsl(224,9%,20%)];
+  }
+
+  .breadcrumb-container {
+    @apply bg-white flex items-center px-8 border-b border-[hsl(220,13%,91%)];
+    height: var(--breadcrumb-height);
+  }
+
+  .breadcrumb-item {
+    @apply text-[hsl(220,9%,46%)] no-underline text-sm;
+  }
+
+  .breadcrumb-item:not(:last-child)::after {
+    @apply content-['/'] mx-2 text-[hsl(220,9%,46%)];
+  }
+
+  .breadcrumb-item:last-child {
+    @apply text-[hsl(224,9%,20%)] font-medium;
+  }
+
+  .content-container {
+    @apply p-8 max-w-screen-xl mx-auto;
+  }
+
+  /* Stats Cards */
+  .stats-grid {
+    @apply grid gap-6 mb-8;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .stat-card {
+    @apply bg-white rounded-xl p-6 shadow-sm flex items-center gap-4 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md;
+  }
+
+  .stat-icon {
+    @apply w-12 h-12 rounded-xl flex items-center justify-center text-xl text-white flex-shrink-0;
+  }
+
+  .stat-icon.primary { @apply bg-[hsl(219,87%,21%)]; }
+  .stat-icon.accent { @apply bg-[hsl(38,95%,56%)]; }
+  .stat-icon.success { @apply bg-[hsl(142,76%,36%)]; }
+  .stat-icon.error { @apply bg-[hsl(350,72%,49%)]; }
+
+  .stat-content h3 {
+    @apply text-3xl font-bold text-[hsl(224,9%,20%)] mb-1;
+  }
+
+  .stat-content p {
+    @apply text-[hsl(220,9%,46%)] text-sm;
+  }
+
+  /* Status Chips */
+  .status-chip {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium uppercase tracking-wide;
+  }
+
+  .status-chip.success {
+    @apply bg-[hsl(142,76%,36%)]/10 text-[hsl(142,76%,36%)];
+  }
+
+  .status-chip.warning {
+    @apply bg-[hsl(38,95%,56%)]/10 text-[hsl(38,95%,56%)];
+  }
+
+  .status-chip.danger {
+    @apply bg-[hsl(350,72%,49%)]/10 text-[hsl(350,72%,49%)];
+  }
+
+  /* Page Styles */
+  .page-header {
+    @apply flex justify-between items-center mb-8;
+  }
+
+  .page-title {
+    @apply text-3xl font-bold text-[hsl(219,87%,21%)];
+  }
+
+  .placeholder-page {
+    @apply text-center py-20 px-5;
+  }
+
+  .placeholder-icon {
+    @apply text-6xl text-[hsl(220,9%,46%)] mb-6;
+  }
+
+  .placeholder-title {
+    @apply text-2xl font-semibold text-[hsl(224,9%,20%)] mb-3;
+  }
+
+  .placeholder-text {
+    @apply text-[hsl(220,9%,46%)] text-base;
+  }
+
+  /* Table Styles */
+  .table-container {
+    @apply bg-white rounded-xl overflow-hidden shadow-sm;
+  }
+
+  .table-header {
+    @apply flex justify-between items-center p-6 border-b border-[hsl(220,13%,91%)];
+  }
+
+  .table-title {
+    @apply text-lg font-semibold text-[hsl(224,9%,20%)];
+  }
+
+  .table-actions {
+    @apply flex gap-3;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .sidebar-container {
+      @apply -translate-x-full transition-transform duration-300;
+    }
+
+    .sidebar-container.mobile-open {
+      @apply translate-x-0;
+    }
+
+    .main-content {
+      @apply ml-0 w-full;
+    }
+
+    .header-container {
+      @apply px-5;
+    }
+
+    .content-container {
+      @apply p-5;
+    }
+
+    .stats-grid {
+      @apply grid-cols-1 gap-4;
+    }
+
+    .page-header {
+      @apply flex-col items-start gap-4;
+    }
+
+    .table-header {
+      @apply flex-col items-start gap-4;
+    }
+  }
+}
