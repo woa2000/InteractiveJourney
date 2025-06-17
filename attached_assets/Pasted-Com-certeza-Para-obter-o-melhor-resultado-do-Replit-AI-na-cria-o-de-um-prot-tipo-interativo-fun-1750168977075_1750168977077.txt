@@ -1,0 +1,81 @@
+Com certeza. Para obter o melhor resultado do Replit AI na criação de um protótipo interativo, é fundamental fornecer um prompt detalhado, estruturado e claro. Um bom prompt atua como um briefing para um desenvolvedor júnior.
+Aqui está um prompt ideal, que você pode copiar e colar no Replit, projetado para maximizar a qualidade do resultado com base no PRD que aprimoramos.
+Prompt Ideal para o Replit AI
+Assunto: Criação de um protótipo interativo para Plataforma Administrativa Web.
+Olá! Sua tarefa é atuar como um desenvolvedor frontend sênior e criar um protótipo interativo e não funcional para uma plataforma administrativa chamada "Rise Field Execution".
+Tecnologias:
+ * Framework: React 18 + Vite (usando TypeScript).
+ * Estilização: Use CSS Modules ou Styled Components. Não use Tailwind CSS.
+ * Roteamento: react-router-dom.
+ * Ícones: react-icons.
+Fonte da Verdade (Resumo do PRD):
+Baseie-se estritamente nas seguintes diretrizes extraídas do PRD do projeto:
+ * Objetivo: Criar o "centro de comando" da operação, focado na persona Gestor de Field (Rise).
+ * Layout & Navegação:
+   * Grid de 12 colunas (largura máxima do conteúdo: 1280px).
+   * Layout principal com um Sidebar lateral esquerdo, colapsável (de 240px para 64px) e um Header fixo no topo.
+   * Um Breadcrumb (trilha de navegação) deve ficar fixo logo abaixo do Header.
+ * Diretrizes de UI/UX:
+   * Paleta de Cores: Primária (elementos escuros) #0A2463, Destaque (ações, botões) #F9A826 (laranja vibrante), Erro #C82333, Sucesso #28a745.
+   * Tipografia: Poppins.
+   * Componentes-chave: Tabelas, Modais, Botões, Cards, Chips de status.
+ * Escopo Funcional (Páginas a serem criadas):
+   * Dashboard (Home): Visão geral com indicadores.
+   * Projetos: Listagem e gerenciamento de projetos.
+   * Cadastros: Gerenciamento de dados mestre (Clientes, Parceiros, etc.).
+   * Relatórios: Área para visualização de relatórios.
+   * Configurações: Perfil do usuário e configurações do sistema.
+Estrutura de Arquivos Solicitada:
+Por favor, organize o código na seguinte estrutura de pastas:
+/src
+|-- /assets
+|   |-- logo-rise.svg
+|-- /components
+|   |-- /common
+|   |   |-- Button.tsx
+|   |   |-- Modal.tsx
+|   |   |-- Card.tsx
+|   |-- /layout
+|   |   |-- Sidebar.tsx
+|   |   |-- Header.tsx
+|   |   |-- AdminLayout.tsx
+|   |-- /dashboard
+|   |   |-- StatsCard.tsx
+|   |-- /projects
+|   |   |-- ProjectsTable.tsx
+|-- /data
+|   |-- mockData.ts  // (Para dados de projetos, usuários, etc.)
+|-- /pages
+|   |-- DashboardPage.tsx
+|   |-- ProjectsPage.tsx
+|   |-- CadastrosPage.tsx
+|   |-- ReportsPage.tsx
+|   |-- SettingsPage.tsx
+|-- /styles
+|   |-- globals.css
+|   |-- design_tokens.css // (Para as variáveis de cores e fontes)
+|-- App.tsx
+|-- main.tsx
+
+Passos para a Implementação (Siga esta ordem):
+ * Configuração Inicial: Configure o projeto Vite + React + TS. Instale react-router-dom e react-icons.
+ * Design Tokens: Crie o arquivo /src/styles/design_tokens.css e defina as variáveis CSS para a paleta de cores e fontes especificadas no PRD.
+ * Layout Principal (AdminLayout):
+   * Crie o componente Header.tsx. Ele deve conter o nome do usuário logado (use "Gestor de Field") e um ícone de sino para notificações.
+   * Crie o componente Sidebar.tsx. Ele deve exibir o logo e os links de navegação para: Dashboard, Projetos, Cadastros, Relatórios e, no rodapé, Configurações. Use ícones apropriados da react-icons para cada item.
+   * Monte o AdminLayout.tsx combinando o Sidebar e o Header. O conteúdo principal da página será renderizado ao lado do sidebar.
+ * Roteamento: No App.tsx, configure as rotas usando react-router-dom para que cada link no Sidebar leve à sua respectiva página (DashboardPage, ProjectsPage, etc.), sempre dentro do AdminLayout.
+ * Interatividade (Não funcional):
+   * Sidebar Colapsável: Adicione um botão ao Sidebar que, ao ser clicado, altere sua largura de 240px para 64px. Na versão colapsada, mostre apenas os ícones, sem o texto dos links.
+   * Botões e Modais: Em todas as páginas, os botões de ação (ex: "Novo Projeto", "Gerar Relatório") não precisam ter lógica, mas devem ser clicáveis. Um clique no botão "Novo Projeto" na ProjectsPage deve abrir um componente Modal. O modal deve ter um título, um conteúdo de exemplo e um botão para fechá-lo.
+ * Desenvolvimento das Páginas (com dados mockados):
+   * DashboardPage.tsx: Crie um layout em grid. Use o componente StatsCard.tsx para exibir 4 cards com estatísticas falsas (ex: "Projetos Ativos: 15", "Tarefas Atrasadas: 3"). Dê à página o título "Painel de Insights".
+   * ProjectsPage.tsx: Esta é a página principal.
+     * Adicione um título "Gerenciamento de Projetos".
+     * Inclua botões para "Filtros" e "+ Novo Projeto".
+     * Crie o componente ProjectsTable.tsx. A tabela deve ter as colunas: "Nome do Projeto", "Cliente", "Status" e "Prazo".
+     * Popule a tabela com pelo menos 5 linhas de dados mockados que você criará em /src/data/mockData.ts.
+     * A coluna "Status" deve usar um componente Chip com cores diferentes baseadas no status (ex: Verde para "Concluído", Laranja para "Em Andamento", Vermelho para "Atrasado").
+   * Outras Páginas (Cadastros, Relatórios, Configurações): Crie-as como placeholders, contendo apenas um título claro que identifique a página (ex: "Página de Cadastros").
+Conclusão:
+O resultado final deve ser um protótipo web responsivo e interativo, onde é possível navegar entre as páginas, colapsar o menu, abrir um modal e ver dados de exemplo, tudo alinhado com a identidade visual do PRD. O código deve ser limpo e bem comentado.
