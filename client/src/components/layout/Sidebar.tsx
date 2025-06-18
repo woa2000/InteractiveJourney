@@ -69,7 +69,7 @@ export default function Sidebar({ collapsed, onToggle }: SidebarProps) {
           return (
             <Link key={item.href} href={item.href}>
               <div className={cn("nav-item", isActive && "active")}>
-                <Icon size={18} />
+                <Icon size={20} />
                 <span className="nav-text">{item.label}</span>
               </div>
             </Link>
@@ -85,7 +85,7 @@ export default function Sidebar({ collapsed, onToggle }: SidebarProps) {
           return (
             <Link key={item.href} href={item.href}>
               <div className={cn("nav-item", isActive && "active")}>
-                <Icon size={18} />
+                <Icon size={20} />
                 <span className="nav-text">{item.label}</span>
               </div>
             </Link>
