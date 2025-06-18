@@ -53,7 +53,7 @@ export default function Sidebar({ collapsed, onToggle }: SidebarProps) {
     <nav className={cn("sidebar-container", collapsed && "collapsed")}>
       <div className="sidebar-header">
         <div className="sidebar-logo">
-          <TrendingUp size={18} />
+          <TrendingUp size={20} />
         </div>
         <span className="sidebar-title">Rise Field</span>
         <button className="sidebar-toggle" onClick={onToggle}>

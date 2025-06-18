@@ -4,43 +4,44 @@
 
 :root {
   --background: hsl(0, 0%, 100%);
-  --foreground: hsl(224, 71.4%, 4.1%);
-  --muted: hsl(220, 14.3%, 95.9%);
-  --muted-foreground: hsl(220, 8.9%, 46.1%);
+  --foreground: hsl(219, 87%, 21%);
+  --muted: hsl(0, 0%, 96%);
+  --muted-foreground: hsl(219, 20%, 50%);
   --popover: hsl(0, 0%, 100%);
-  --popover-foreground: hsl(224, 71.4%, 4.1%);
+  --popover-foreground: hsl(219, 87%, 21%);
   --card: hsl(0, 0%, 100%);
-  --card-foreground: hsl(224, 71.4%, 4.1%);
+  --card-foreground: hsl(219, 87%, 21%);
   --border: hsl(220, 13%, 91%);
   --input: hsl(220, 13%, 91%);
   --primary: hsl(219, 87%, 21%);
-  --primary-foreground: hsl(210, 20%, 98%);
-  --secondary: hsl(220, 14.3%, 95.9%);
-  --secondary-foreground: hsl(220, 9%, 46%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(0, 0%, 96%);
+  --secondary-foreground: hsl(219, 87%, 21%);
   --accent: hsl(38, 95%, 56%);
-  --accent-foreground: hsl(220, 9%, 9%);
+  --accent-foreground: hsl(0, 0%, 100%);
   --destructive: hsl(0, 72%, 51%);
-  --destructive-foreground: hsl(210, 20%, 98%);
+  --destructive-foreground: hsl(0, 0%, 100%);
   --success: hsl(142, 76%, 36%);
-  --success-foreground: hsl(355, 7%, 97%);
-  --ring: hsl(219, 87%, 21%);
+  --success-foreground: hsl(0, 0%, 100%);
+  --ring: hsl(38, 95%, 56%);
   --radius: 0.75rem;
 
-  /* Custom Rise Field Execution colors */
-  --rise-primary: hsl(219, 87%, 21%);
-  --rise-accent: hsl(38, 95%, 56%);
-  --rise-error: hsl(350, 72%, 49%);
+  /* Custom Rise Field Execution colors - Updated palette */
+  --rise-primary: hsl(219, 87%, 21%); /* #0A2463 - Dark blue for texts */
+  --rise-accent: hsl(38, 95%, 56%); /* #F9A826 - Vibrant orange for highlights */
+  --rise-background: hsl(0, 0%, 100%); /* White background */
+  --rise-error: hsl(0, 72%, 51%);
   --rise-success: hsl(142, 76%, 36%);
-  --rise-light-gray: hsl(210, 20%, 98%);
+  --rise-light-gray: hsl(0, 0%, 98%);
   --rise-medium-gray: hsl(220, 13%, 91%);
-  --rise-dark-gray: hsl(220, 9%, 46%);
-  --rise-text-dark: hsl(224, 9%, 20%);
+  --rise-dark-gray: hsl(219, 20%, 50%);
+  --rise-text-dark: hsl(219, 87%, 21%);
   
   /* Sidebar variables */
-  --sidebar-width: 240px;
-  --sidebar-collapsed: 64px;
-  --header-height: 70px;
-  --breadcrumb-height: 50px;
+  --sidebar-width: 260px;
+  --sidebar-collapsed: 72px;
+  --header-height: 72px;
+  --breadcrumb-height: 52px;
 }
 
 .dark {
@@ -93,6 +94,7 @@
   .sidebar-container {
     width: var(--sidebar-width);
     @apply bg-[hsl(219,87%,21%)] text-white fixed h-screen left-0 top-0 z-50 transition-all duration-300 overflow-hidden;
+    box-shadow: 2px 0 10px rgba(10, 36, 99, 0.1);
   }
 
   .sidebar-container.collapsed {
@@ -100,12 +102,13 @@
   }
 
   .sidebar-header {
-    @apply flex items-center px-5 border-b border-white/10;
+    @apply flex items-center px-6 border-b border-white/10;
     height: var(--header-height);
   }
 
   .sidebar-logo {
-    @apply w-8 h-8 bg-[hsl(38,95%,56%)] rounded-xl flex items-center justify-center mr-3 flex-shrink-0;
+    @apply w-10 h-10 bg-[hsl(38,95%,56%)] rounded-xl flex items-center justify-center mr-4 flex-shrink-0;
+    box-shadow: 0 2px 8px rgba(249, 168, 38, 0.3);
   }
 
   .sidebar-title {
@@ -117,31 +120,31 @@
   }
 
   .sidebar-toggle {
-    @apply bg-transparent border-0 text-white cursor-pointer p-2 rounded ml-auto transition-colors duration-300 hover:bg-white/10;
+    @apply bg-transparent border-0 text-white cursor-pointer p-2 rounded-lg ml-auto transition-all duration-300 hover:bg-white/10 hover:scale-105;
   }
 
   .sidebar-nav {
-    @apply flex-1 py-5;
+    @apply flex-1 py-6;
   }
 
   .nav-item {
-    @apply flex items-center px-5 py-3 text-white/80 no-underline transition-all duration-300 relative hover:bg-white/10 hover:text-white;
+    @apply flex items-center px-6 py-4 text-white/80 no-underline transition-all duration-300 relative hover:bg-white/10 hover:text-white mx-3 rounded-lg;
   }
 
   .nav-item.active {
-    @apply bg-white/10 text-white;
+    @apply bg-[hsl(38,95%,56%)]/20 text-white;
   }
 
   .nav-item.active::before {
-    @apply content-[''] absolute left-0 top-0 bottom-0 w-1 bg-[hsl(38,95%,56%)];
+    @apply content-[''] absolute left-0 top-2 bottom-2 w-1 bg-[hsl(38,95%,56%)] rounded-r-full;
   }
 
-  .nav-item i {
-    @apply w-6 mr-3 text-center flex-shrink-0;
+  .nav-item svg {
+    @apply w-5 h-5 mr-4 flex-shrink-0;
   }
 
   .nav-text {
-    @apply whitespace-nowrap opacity-100 transition-opacity duration-300;
+    @apply whitespace-nowrap opacity-100 transition-opacity duration-300 font-medium;
   }
 
   .sidebar-container.collapsed .nav-text {
@@ -149,7 +152,7 @@
   }
 
   .sidebar-footer {
-    @apply border-t border-white/10 py-5;
+    @apply border-t border-white/10 py-6;
   }
 
   /* Main Content */
@@ -165,7 +168,7 @@
   }
 
   .header-container {
-    @apply bg-white flex items-center justify-between px-8 shadow-sm sticky top-0 z-40;
+    @apply bg-white flex items-center justify-between px-8 shadow-sm sticky top-0 z-40 border-b border-gray-100;
     height: var(--header-height);
   }
 
@@ -174,27 +177,27 @@
   }
 
   .header-actions {
-    @apply flex items-center gap-5;
+    @apply flex items-center gap-6;
   }
 
   .notification-btn {
-    @apply bg-transparent border-0 text-[hsl(220,9%,46%)] cursor-pointer p-2 rounded-full relative transition-colors duration-300 hover:bg-[hsl(210,20%,98%)];
+    @apply bg-transparent border-0 text-[hsl(219,20%,50%)] cursor-pointer p-3 rounded-xl relative transition-all duration-300 hover:bg-[hsl(0,0%,96%)] hover:text-[hsl(219,87%,21%)];
   }
 
   .notification-badge {
-    @apply absolute top-1 right-1 w-2 h-2 bg-[hsl(350,72%,49%)] rounded-full;
+    @apply absolute top-2 right-2 w-2.5 h-2.5 bg-[hsl(0,72%,51%)] rounded-full;
   }
 
   .user-info {
-    @apply flex items-center gap-3;
+    @apply flex items-center gap-4;
   }
 
   .user-avatar {
-    @apply w-9 h-9 bg-[hsl(38,95%,56%)] rounded-full flex items-center justify-center text-white font-semibold;
+    @apply w-10 h-10 bg-[hsl(38,95%,56%)] rounded-full flex items-center justify-center text-white font-semibold shadow-md;
   }
 
   .user-name {
-    @apply font-medium text-[hsl(224,9%,20%)];
+    @apply font-medium text-[hsl(219,87%,21%)] text-sm;
   }
 
   .breadcrumb-container {
@@ -203,15 +206,15 @@
   }
 
   .breadcrumb-item {
-    @apply text-[hsl(220,9%,46%)] no-underline text-sm;
+    @apply text-[hsl(219,20%,50%)] no-underline text-sm transition-colors duration-200 hover:text-[hsl(219,87%,21%)];
   }
 
   .breadcrumb-item:not(:last-child)::after {
-    @apply content-['/'] mx-2 text-[hsl(220,9%,46%)];
+    @apply content-['/'] mx-3 text-[hsl(219,20%,50%)];
   }
 
   .breadcrumb-item:last-child {
-    @apply text-[hsl(224,9%,20%)] font-medium;
+    @apply text-[hsl(219,87%,21%)] font-medium;
   }
 
   .content-container {
@@ -221,28 +224,28 @@
   /* Stats Cards */
   .stats-grid {
     @apply grid gap-6 mb-8;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   }
 
   .stat-card {
-    @apply bg-white rounded-xl p-6 shadow-sm flex items-center gap-4 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md;
+    @apply bg-white rounded-xl p-6 shadow-sm border border-gray-100 flex items-center gap-5 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg;
   }
 
   .stat-icon {
-    @apply w-12 h-12 rounded-xl flex items-center justify-center text-xl text-white flex-shrink-0;
+    @apply w-14 h-14 rounded-xl flex items-center justify-center text-white flex-shrink-0 shadow-md;
   }
 
   .stat-icon.primary { @apply bg-[hsl(219,87%,21%)]; }
   .stat-icon.accent { @apply bg-[hsl(38,95%,56%)]; }
   .stat-icon.success { @apply bg-[hsl(142,76%,36%)]; }
-  .stat-icon.error { @apply bg-[hsl(350,72%,49%)]; }
+  .stat-icon.error { @apply bg-[hsl(0,72%,51%)]; }
 
   .stat-content h3 {
-    @apply text-3xl font-bold text-[hsl(224,9%,20%)] mb-1;
+    @apply text-3xl font-bold text-[hsl(219,87%,21%)] mb-1;
   }
 
   .stat-content p {
-    @apply text-[hsl(220,9%,46%)] text-sm;
+    @apply text-[hsl(219,20%,50%)] text-sm font-medium;
   }
 
   /* Status Chips */
@@ -276,20 +279,20 @@
   }
 
   .placeholder-icon {
-    @apply text-6xl text-[hsl(220,9%,46%)] mb-6;
+    @apply text-6xl text-[hsl(219,20%,50%)] mb-6;
   }
 
   .placeholder-title {
-    @apply text-2xl font-semibold text-[hsl(224,9%,20%)] mb-3;
+    @apply text-2xl font-semibold text-[hsl(219,87%,21%)] mb-3;
   }
 
   .placeholder-text {
-    @apply text-[hsl(220,9%,46%)] text-base;
+    @apply text-[hsl(219,20%,50%)] text-base;
   }
 
   /* Table Styles */
   .table-container {
-    @apply bg-white rounded-xl overflow-hidden shadow-sm;
+    @apply bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100;
   }
 
   .table-header {
@@ -297,7 +300,7 @@
   }
 
   .table-title {
-    @apply text-lg font-semibold text-[hsl(224,9%,20%)];
+    @apply text-lg font-semibold text-[hsl(219,87%,21%)];
   }
 
   .table-actions {

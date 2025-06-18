@@ -28,7 +28,7 @@ export default function StatsCard({ title, value, icon, variant }: StatsCardProp
   return (
     <div className="stat-card">
       <div className={cn("stat-icon", variant)}>
-        <IconComponent size={20} />
+        <IconComponent size={22} />
       </div>
       <div className="stat-content">
         <h3>{value}</h3>
