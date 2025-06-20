@@ -1,11 +1,6 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "api/index.js",
-      "use": "@vercel/node"
-    }
-  ],
+  "buildCommand": "npm run build",
   "routes": [
     {
       "src": "/(.*)",
@@ -14,7 +9,8 @@
   ],
   "functions": {
     "api/index.js": {
-      "includeFiles": "dist/public/**"
+      "includeFiles": "dist/public/**",
+      "memory": 1024
     }
   }
 }
